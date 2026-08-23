@@ -12,6 +12,7 @@ Backend / Distributed Systems Engineer — Java, Kafka, Spring Boot, AWS
 - **Distributed correctness** — CAS ownership-fencing (chosen over Redlock — Kleppmann-based rationale: local lock-holding correctness ≠ system-wide safety under clock skew/GC pause)
 - **Resilience engineering** — Resilience4j full-stack per boundary, fail-closed default with explicit, deliberate fail-open exceptions
 - **Ephemeral IaC** — Independent multi-root state management, keyless deployment pipelines, and automated budget circuit breakers (scale-to-zero) to eliminate idle cloud costs.
+- **AI Systems Integration** — Spring AI (Ollama/OpenAI) for advisory workflows; enforced determinism boundaries isolating LLM calls strictly off critical execution/replay paths.
 
 **Portfolio projects** *(Reference architectures / lab benchmarks)*
 - 🛡️ **RPE** — event-driven fraud/velocity detection, 4-services, Redis Lua atomic gate, UUIDv5 deterministic replay-safe IDs.
