@@ -16,7 +16,18 @@ Backend / Distributed Systems Engineer — Java, Kafka, Spring Boot, AWS
 
 **Portfolio projects** *(Reference architectures / lab benchmarks)*
 - 🛡️ **RPE** — event-driven fraud/velocity detection, 4-services, Redis Lua atomic gate, UUIDv5 deterministic replay-safe IDs.
+  <br><br>
+  <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
+  <br><br>
+  
 - 🌀 **ChaosForge** — multi-tenant chaos engineering control plane, 3-services, CAS fencing tokens, two-level cache with disclosed staleness bounds.
+  <br><br>
+  <img src="assets/CF.png" alt="ChaosForge Architecture Diagram" width="100%" />
+  <br><br>
+  
 - ☁️ **ChaosForge-Infra** — 3-root Terraform deployment, AWS ECS Fargate/Lambda/FIS/IAM OIDC, deterministic apply ordering, live-verified health and Prometheus scrape endpoints.
+  <br><br>
+  <img src="assets/CF-Infra.png" alt="ChaosForge-Infra Architecture Diagram" width="100%" />
+  <br><br>
 
 **Currently open to:** backend/distributed-systems IC roles — contract or full-time, architecture-plus-implementation ownership.
