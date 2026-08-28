@@ -1,7 +1,7 @@
 ### Amit Vikram Satpathy
-Backend / Distributed Systems Engineer — Java, Kafka, Spring Boot, AWS
+Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
 
-9+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture), early-stage e-commerce, and a multi-vendor payment integration. Currently architecting two independent reference systems to validate distributed-correctness patterns under concurrency: **RPE** (fraud/anomaly detection) and **ChaosForge** (chaos engineering control plane) — backed by a lab AWS deployment architecture (**ChaosForge-Infra**).
+9+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture), early-stage e-commerce, and a multi-vendor payment integration. Currently building two independent reference systems to validate distributed-correctness patterns under concurrency: **RPE** (fraud/anomaly detection) and **ChaosForge** (chaos engineering control plane) — backed by a lab AWS deployment architecture (**ChaosForge-Infra**).
 
 **Execution Methodology:** Architecture, system design, and correctness verification owned end-to-end. Codebase implementations are validated against strict integration and failure-mode test gates.
 
@@ -14,7 +14,7 @@ Backend / Distributed Systems Engineer — Java, Kafka, Spring Boot, AWS
 - **Ephemeral IaC** — Independent multi-root state management, keyless deployment pipelines, and automated budget circuit breakers (scale-to-zero) to eliminate idle cloud costs.
 - **AI integration** — Spring AI (Ollama/OpenAI) for advisory workflows; enforced determinism boundaries isolating LLM calls strictly off critical execution/replay paths.
 
-**Portfolio projects** *(Reference architectures / lab benchmarks)*
+**Engineering projects** *(Reference architectures / lab benchmarks)*
 - 🛡️ **RPE** — event-driven fraud/velocity detection, 4-services, Redis Lua atomic gate, UUIDv5 deterministic replay-safe IDs.
   <br><br>
   <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
@@ -30,4 +30,4 @@ Backend / Distributed Systems Engineer — Java, Kafka, Spring Boot, AWS
   <img src="assets/CF-Infra.png" alt="ChaosForge-Infra Architecture Diagram" width="100%" />
   <br><br>
 
-**Currently open to:** backend/distributed-systems IC roles — contract or full-time, architecture-plus-implementation ownership.
+**Open to:** backend/distributed-systems IC roles — contract or full-time.
