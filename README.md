@@ -21,7 +21,7 @@ Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
   <br><br>
   <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
   <br><br>
-  📄 **Architecture & Trade-offs →** [RPE ADR Index (29 Decisions)](https://github.com/amitvsatpathy90-source/revenue-protection-engine/edit/main/docs/adrs/README.md)
+  📄 **Architecture & Trade-offs →** [RPE ADR Index (30 Decisions)](https://github.com/amitvsatpathy90-source/revenue-protection-engine/blob/main/docs/adrs/README.md)
   <br><br>
   
 - 🌀 **ChaosForge** — multi-tenant chaos engineering control plane, 3-services, CAS fencing tokens, two-level cache with disclosed staleness bounds.
