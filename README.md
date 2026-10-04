@@ -28,7 +28,7 @@ Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
   <br><br>
   <img src="assets/CF.png" alt="ChaosForge Architecture Diagram" width="100%" />
   <br><br>
-  📄 **Architecture & Trade-offs →** [ChaosForge ADR Index (43 Decisions)](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md)
+  📄 **Architecture & Trade-offs →** [ChaosForge ADR Index (44 Decisions)](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md)
   <br><br>
   
 - ☁️ **ChaosForge-Infra** — 3-root Terraform deployment, AWS ECS Fargate/Lambda/FIS/IAM OIDC, deterministic apply ordering, live-verified health and Prometheus scrape endpoints.
