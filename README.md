@@ -30,6 +30,14 @@ Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
   <br><br>
   📄 **Architecture & Trade-offs →** [ChaosForge ADR Index (44 Decisions)](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md)
   <br><br>
+
+  **MCP integration** — Stateless Spring AI MCP server embedded in the Control Plane; eight tools, with `start_scenario` as the sole state-changing tool. Dedicated Gateway audience and per-tool authorization; the write path reuses the existing replay orchestrator.
+  <br><br>
+  <img src="assets/CF-MCP.png" alt="ChaosForge MCP Integration Diagram" width="100%" />
+  <br><br>
+**MCP integration** — Stateless Spring AI MCP server embedded in the Control Plane; eight tools, with `start_scenario` as the sole state-changing tool. Dedicated Gateway audience and per-tool authorization; the write path reuses the existing replay orchestrator.
+<br><br>
+📄 **MCP Architecture & Trade-offs →** [ADR-0543 — Embedded MCP Server](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/ADR-0543.md) · [MCP Server Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mcp-design.md)
   
 - ☁️ **ChaosForge-Infra** — 3-root Terraform deployment, AWS ECS Fargate/Lambda/FIS/IAM OIDC, deterministic apply ordering, live-verified health and Prometheus scrape endpoints.
   <br><br>
