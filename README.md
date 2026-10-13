@@ -14,16 +14,15 @@ Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
 - **Ephemeral IaC** — Independent multi-root state management, keyless deployment pipelines, and automated budget circuit breakers (scale-to-zero) to eliminate idle cloud costs.
 - **AI integration** — Spring AI (Ollama/OpenAI) for advisory workflows; enforced determinism boundaries isolating LLM calls strictly off critical execution/replay paths.
 
-
-
 **Engineering projects** *(Reference architectures / lab benchmarks)*
+
 - 🛡️ **RPE** — event-driven fraud/velocity detection, 4-services, Redis Lua atomic gate, UUIDv5 deterministic replay-safe IDs.
   <br><br>
   <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
   <br><br>
   📄 **Architecture & Trade-offs →** [RPE ADR Index (30 Decisions)](https://github.com/amitvsatpathy90-source/revenue-protection-engine/blob/main/docs/adrs/README.md)
   <br><br>
-  
+
 - 🌀 **ChaosForge** — multi-tenant chaos engineering control plane, 3-services, CAS fencing tokens, two-level cache with disclosed staleness bounds.
   <br><br>
   <img src="assets/CF.png" alt="ChaosForge Architecture Diagram" width="100%" />
@@ -35,10 +34,9 @@ Backend & Distributed Systems Engineer | Java, Kafka, Spring Boot, AWS
   <br><br>
   <img src="assets/CF-MCP.png" alt="ChaosForge MCP Integration Diagram" width="100%" />
   <br><br>
-**MCP integration** — Stateless Spring AI MCP server embedded in the Control Plane; eight tools, with `start_scenario` as the sole state-changing tool. Dedicated Gateway audience and per-tool authorization; the write path reuses the existing replay orchestrator.
-<br><br>
-📄 **MCP Architecture & Trade-offs →** [ADR-0543 — Embedded MCP Server](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/ADR-0543.md) · [MCP Server Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mcp-design.md)
-  
+  📄 **MCP Architecture & Trade-offs →** [ADR-0543 — Embedded MCP Server](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/ADR-0543.md) · [MCP Server Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mcp-design.md)
+  <br><br>
+
 - ☁️ **ChaosForge-Infra** — 3-root Terraform deployment, AWS ECS Fargate/Lambda/FIS/IAM OIDC, deterministic apply ordering, live-verified health and Prometheus scrape endpoints.
   <br><br>
   <img src="assets/CF-Infra.png" alt="ChaosForge-Infra Architecture Diagram" width="100%" />
