@@ -21,7 +21,7 @@ Backend & Distributed Systems Engineer | Java, Spring Boot, Kafka, AWS
   <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
   <br><br>
 
-  **RAG integration & evaluation** — advisory Spring AI triage uses exact `rule_name` lookup on the v1 runtime path; a test-scoped pgvector harness compared TopK, dedup, MMR and relative-floor selectors. Production similarity retrieval remains dormant.
+  **RAG evaluation** — advisory Spring AI triage actively uses exact `rule_name` lookup on the v1 runtime path. A test-scoped pgvector harness compared TopK, dedup, MMR and relative-floor selectors. Query-time embeddings and cosine-similarity retrieval remain dormant; alternative selectors were evaluated but not adopted
   <br><br>
   <img src="assets/RPE-RAG.png" alt="RPE RAG-grounded triage" width="100%" />
   <br><br>
@@ -35,7 +35,7 @@ Backend & Distributed Systems Engineer | Java, Spring Boot, Kafka, AWS
   📄 [ChaosForge ADR Index (44 decisions)](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.27.0-lab](https://github.com/amitvsatpathy90-source/chaosforge/releases/tag/v1.27.0-lab)
   <br><br>
 
-  **MCP integration** — stateless Spring AI MCP server embedded in the Control Plane; eight tools, with `start_scenario` as the sole state-changing tool. Dedicated Gateway audience and per-tool authorization; the write path reuses the existing replay orchestrator.
+  **MCP integration** — embedded a stateless Spring AI MCP server in the Control Plane so AI clients can inspect scenarios and rules, get guidance on failed Kafka messages, draft scenarios and check run outcomes. Of eight tools, only `start_scenario` triggers execution; it reuses the existing replay orchestrator, with Gateway JWT audience checks and per-tool authorization. 
   <br><br>
   <img src="assets/CF-MCP.png" alt="ChaosForge MCP Integration Diagram" width="100%" />
   <br><br>
