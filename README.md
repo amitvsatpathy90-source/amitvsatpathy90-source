@@ -1,9 +1,9 @@
 ### Amit Vikram Satpathy
 Senior Backend Engineer | Java, Spring Boot, Microservices | Kafka, Distributed Systems | Terraform, AWS | MCP, RAG, Spring AI
 
-8+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture), early-stage e-commerce, and a hybrid-cloud payment integration. Since May 2025 I have been building three lab projects to practise distributed-correctness patterns under concurrency: **RPE** (payment anomaly detection), **ChaosForge** (chaos-engineering control plane) and **ChaosForge-Infra** (their AWS deployment layer).
+8+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture) and early-stage e-commerce, plus a recent hybrid-cloud payment integration engagement. Since May 2025 I have been building three lab projects to practise distributed-correctness patterns under concurrency: **RPE** (payment anomaly detection), **ChaosForge** (chaos-engineering control plane) and **ChaosForge-Infra** (their AWS deployment layer).
 
-**How I work:** these systems are built with AI-assisted development. AI drafts the ADRs from scenarios I analyse; I review, correct and accept each decision, and I own the verification., and each release's notes state what is and is not verified. All three are lab / reference systems, not production deployments.
+**How I work:** these systems are built with AI-assisted development. I analyse the scenarios and make each decision; AI drafts the ADRs and scaffolding. I review, correct and accept every decision, and I own the verification; each release's notes state what is and is not verified. All three are lab / reference systems, not production deployments.
 
 ---
 
