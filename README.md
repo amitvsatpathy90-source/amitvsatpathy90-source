@@ -1,52 +1,75 @@
-### Amit Vikram Satpathy
-Senior Backend Engineer | Java, Spring Boot, Microservices | Kafka, Distributed Systems | Terraform, AWS | MCP, RAG, Spring AI
+# Amit Vikram Satpathy
 
-8+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture) and early-stage e-commerce, plus a recent hybrid-cloud payment integration engagement. Since May 2025 I have been building three lab projects to practise distributed-correctness patterns under concurrency: **RPE** (payment anomaly detection), **ChaosForge** (chaos-engineering control plane) and **ChaosForge-Infra** (their AWS deployment layer).
+**Senior Backend Engineer** · Java · Spring Boot · Microservices · Kafka · Distributed Systems · AWS · Terraform · Spring AI · MCP · RAG
 
-**How I work:** these systems are built with AI-assisted development. I analyse the scenarios and make each decision; AI drafts the ADRs and scaffolding. I review, correct and accept every decision, and I own the verification; each release's notes state what is and is not verified. All three are lab / reference systems, not production deployments.
+I'm a backend engineer with 8+ years across ERP, performance monitoring, enterprise benefits (Netflix OSS architecture), and early-stage e-commerce, plus a hybrid-cloud payment-integration engagement. My engineering focus is distributed systems and correctness under concurrency: ordering, idempotency, ownership fencing, and failure handling.
+
+**Open to:** Senior Backend Engineering, Distributed Systems and Platform Engineering roles [LinkedIn](https://www.linkedin.com/in/amit-vikram-satpathy/) · amitv.satpathy90@gmail.com
+
+Since May 2025, I've been building three lab/reference systems to explore distributed correctness under concurrency. These are not production deployments.
+
+## Engineering projects
+
+- 🛡️ **RPE** — Payment anomaly detection: Redis Lua atomic detection gate, transactional outbox, replay-safe alert IDs, and advisory Spring AI triage.
+- 🌀 **ChaosForge** — Multi-tenant chaos-engineering control plane: CAS ownership fencing, step-level idempotency, bounded-staleness caching, and embedded Spring AI MCP integration.
+- ☁️ **ChaosForge-Infra** — Three-root Terraform deployment on AWS ECS Fargate, with IAM OIDC keyless deployment and a budget-triggered scale-to-zero mechanism.
+
+**How I work:** I define the scenarios and make the design decisions. AI assists with ADR drafts and implementation scaffolding; I review and correct the output and own verification. Release notes state what is and isn't verified.
 
 ---
 
-**Focus areas**
-- **Event-driven architecture** — Kafka transactional outbox/inbox, idempotent consumers, partition-keyed ordering (at-least-once + idempotent consumer, never trusting a transport's exactly-once claim)
-- **Distributed correctness** — CAS ownership-fencing (chosen over Redlock: local lock-holding correctness ≠ system-wide safety under clock skew/GC pause)
-- **Resilience engineering** — Resilience4j per boundary, fail-closed by default with explicit, deliberate fail-open exceptions
-- **Ephemeral IaC** — independent multi-root Terraform state, keyless deployment pipelines, budget-triggered scale-to-zero
-- **AI integration** — Spring AI (Ollama/OpenAI) for advisory workflows; LLM calls kept off critical execution/replay paths by design
+## Project details
 
-**Engineering projects** *(reference architectures, lab-only)*
+### 🛡️ RPE — Revenue Protection Engine
 
-- 🛡️ **RPE** — four independently deployable services: Redis Lua atomic detection gate, transactional outbox, deterministic UUIDv5 replay-safe alert IDs. An advisory Spring AI triage agent, off the critical path, is grounded by an exact `rule_name` lookup (ADR-30) behind its own circuit breaker; an offline evaluation harness bounds any future similarity retrieval.
-  <br><br>
-  <img src="assets/RPE.png" alt="RPE Architecture Diagram" width="100%" />
-  <br><br>
+Four independently deployable services with a Redis Lua atomic detection gate, transactional outbox, and deterministic UUIDv5 alert IDs for replay-safe identity.
 
-  **RAG evaluation** — advisory Spring AI triage actively uses exact `rule_name` lookup on the v1 runtime path. A test-scoped pgvector harness compared TopK, dedup, MMR and relative-floor selectors. Query-time embeddings and cosine-similarity retrieval remain dormant; alternative selectors were evaluated but not adopted
-  <br><br>
-  <img src="assets/RPE-RAG.png" alt="RPE RAG-grounded triage" width="100%" />
-  <br><br>
-  📄 [RPE ADR Index (30 decisions)](https://github.com/amitvsatpathy90-source/revenue-protection-engine/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.19.0-lab](https://github.com/amitvsatpathy90-source/revenue-protection-engine/releases/tag/v1.19.0-lab)
-  <br><br>
+An advisory Spring AI triage agent stays off the critical path. It uses exact `rule_name` lookup (ADR-30), protected by its own circuit breaker.
 
-- 🌀 **ChaosForge** — multi-tenant chaos-engineering control plane: CAS fencing tokens, step-level idempotency, two-level cache with disclosed staleness bounds.
-  <br><br>
-  <img src="assets/CF.png" alt="ChaosForge Architecture Diagram" width="100%" />
-  <br><br>
-  📄 [ChaosForge ADR Index (44 decisions)](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.27.0-lab](https://github.com/amitvsatpathy90-source/chaosforge/releases/tag/v1.27.0-lab)
-  <br><br>
+![RPE Architecture Diagram](assets/RPE.png)
 
-  **MCP integration** — embedded a stateless Spring AI MCP server in the Control Plane so AI clients can inspect scenarios and rules, get guidance on failed Kafka messages, draft scenarios and check run outcomes. Of eight tools, only `start_scenario` triggers execution; it reuses the existing replay orchestrator, with Gateway JWT audience checks and per-tool authorization. 
-  <br><br>
-  <img src="assets/CF-MCP.png" alt="ChaosForge MCP Integration Diagram" width="100%" />
-  <br><br>
-  📄 [ADR-0543: Embedded MCP Server](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/ADR-0543.md) · [MCP Server Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mcp-design.md)
-  <br><br>
+**RAG evaluation**
 
-- ☁️ **ChaosForge-Infra** — 3-root Terraform deployment (foundation → RPE → ChaosForge) on AWS ECS Fargate with IAM OIDC keyless deploy, EFS, Cloud Map and a budget-triggered scale-to-zero breaker. One live apply session is recorded: RPE and foundation services reached steady state, and one Gateway request validated JWT and Gateway→Control Plane mTLS.
-  <br><br>
-  <img src="assets/CF-Infra.png" alt="ChaosForge-Infra Architecture Diagram" width="100%" />
-  <br><br>
-  📄 [ChaosForge-Infra ADR Index (4 decisions)](https://github.com/amitvsatpathy90-source/chaosforge-infra/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.1.0-lab](https://github.com/amitvsatpathy90-source/chaosforge-infra/releases/tag/v1.1.0-lab)
-  <br><br>
+The v1 triage runtime uses exact `rule_name` lookup. A test-scoped pgvector harness compared TopK, deduplication, MMR, and relative-floor selectors; query-time embeddings and cosine-similarity retrieval are not enabled in the runtime.
 
-**Open to:** senior backend / distributed-systems IC roles, full-time or contract. NCR or remote. [LinkedIn](https://www.linkedin.com/in/amit-vikram-satpathy/) · amitv.satpathy90@gmail.com
+![RPE RAG-grounded triage](assets/RPE-RAG.png)
+
+📄 [RPE ADR Index](https://github.com/amitvsatpathy90-source/revenue-protection-engine/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.19.0-lab](https://github.com/amitvsatpathy90-source/revenue-protection-engine/releases/tag/v1.19.0-lab)
+
+### 🌀 ChaosForge — Chaos Engineering Control Plane
+
+A multi-tenant chaos-engineering control plane built around CAS ownership-fencing tokens, step-level idempotency, and a two-level cache with explicit staleness bounds.
+
+![ChaosForge Architecture Diagram](assets/CF.png)
+
+**MCP integration**
+
+The Control Plane embeds a stateless Spring AI MCP server. Its eight tools allow AI clients to inspect scenarios and rules, get guidance on failed Kafka messages, draft scenarios, and check execution outcomes.
+
+Only `start_scenario` can trigger execution. It delegates to the existing replay orchestrator, with Gateway JWT audience checks and per-tool authorization.
+
+![ChaosForge MCP Integration Diagram](assets/CF-MCP.png)
+
+📄 [ChaosForge ADR Index](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.27.0-lab](https://github.com/amitvsatpathy90-source/chaosforge/releases/tag/v1.27.0-lab) · 📐 [MCP Server Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mcp-design.md) · 📐 [mTLS & Internal CA Design](https://github.com/amitvsatpathy90-source/chaosforge/blob/main/docs/chaosforge-mtls-design.md)
+
+### ☁️ ChaosForge-Infra — AWS Infrastructure
+
+Three independent Terraform roots — foundation, RPE, and ChaosForge — for an AWS ECS Fargate deployment.
+
+Includes IAM OIDC keyless deployment, EFS, Cloud Map, and a budget-triggered scale-to-zero breaker.
+
+One recorded live apply session brought foundation and RPE services to steady state. A Gateway request validated JWT handling and Gateway-to-Control Plane mTLS.
+
+![ChaosForge-Infra Architecture Diagram](assets/CF-Infra.png)
+
+📄 [ChaosForge-Infra ADR Index (4 decisions)](https://github.com/amitvsatpathy90-source/chaosforge-infra/blob/main/docs/adrs/README.md) · 🏷️ [Release v1.1.0-lab](https://github.com/amitvsatpathy90-source/chaosforge-infra/releases/tag/v1.1.0-lab)
+
+---
+
+## Engineering focus
+
+- **Event-driven architecture** — Kafka transactional outbox/inbox, idempotent consumers, and partition-keyed ordering. At-least-once delivery with idempotent consumption rather than relying on a transport's exactly-once claim.
+- **Distributed correctness** — CAS ownership fencing, chosen over Redlock because local lock-holding correctness does not guarantee system-wide safety under clock skew or long GC pauses.
+- **Resilience engineering** — Resilience4j at individual boundaries; fail-closed by default, with explicit fail-open exceptions.
+- **Infrastructure engineering** — Independent multi-root Terraform state, IAM OIDC keyless deployment pipelines, and budget-triggered scale-to-zero.
+- **AI integration** — Spring AI with Ollama/OpenAI for advisory workflows. LLM calls stay outside critical execution and replay paths.
